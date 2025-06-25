@@ -37,7 +37,9 @@ Imports:
     networkD3 (>= 0.4.0),
     gridExtra (>= 2.3.0),
     viridis (>= 0.6.0),
-    tidyr (>= 1.1.0)
+    tidyr (>= 1.1.0),
+    moments (>= 0.14),
+    scales (>= 1.1.0)
 Suggests:
     testthat (>= 3.0.0),
     knitr (>= 1.3.0),

@@ -45,14 +45,16 @@ importFrom(quantmod, getSymbols, Ad)
 importFrom(igraph, graph_from_adjacency_matrix, edge_density, transitivity, 
            average.path.length, degree, betweenness, closeness, 
            eigen_centrality, sample_smallworld, as_adjacency_matrix,
-           is_connected, watts.strogatz.game)
+           is_connected, watts.strogatz.game, vcount, ecount, diameter,
+           erdos.renyi.game, cluster_louvain, modularity, igraph_to_networkD3)
 importFrom(nnet, nnet)
 importFrom(forecast, auto.arima)
 importFrom(rugarch, ugarchspec, ugarchfit)
 importFrom(PerformanceAnalytics, SharpeRatio, Return.calculate)
 importFrom(xts, xts)
 importFrom(zoo, coredata, index)
-importFrom(dplyr, group_by, summarise, arrange, filter, mutate, select, "%>%")
+importFrom(dplyr, group_by, summarise, arrange, filter, mutate, select, "%>%",
+           n, desc, slice, all_of, ungroup)
 importFrom(ggplot2, ggplot, aes, geom_line, geom_point, geom_boxplot, 
            geom_tile, geom_col, geom_ribbon, geom_jitter, geom_smooth,
            facet_wrap, scale_color_viridis_d, scale_fill_viridis_d,
@@ -61,12 +63,16 @@ importFrom(ggplot2, ggplot, aes, geom_line, geom_point, geom_boxplot,
            ggsave, guides, guide_legend)
 importFrom(corrplot, corrplot)
 importFrom(plotly, ggplotly, plot_ly)
-importFrom(networkD3, forceNetwork, saveNetwork)
+importFrom(networkD3, forceNetwork, saveNetwork, JS)
+importFrom(moments, skewness, kurtosis)
+importFrom(scales, percent)
+importFrom(zoo, rollapply)
 importFrom(gridExtra, grid.arrange)
 importFrom(viridis, viridis)
 importFrom(tidyr, pivot_longer, pivot_wider)
 importFrom(stats, rnorm, runif, sd, median, quantile,
-           cor, cov, lm, fitted, residuals, na.omit, density, dist)
+           cor, cov, lm, fitted, residuals, na.omit, density, dist,
+           decompose, mad, reorder, sigma)
 importFrom(utils, head, tail, write.csv, read.csv, install.packages)
 importFrom(graphics, plot, lines, points, legend, par)
 importFrom(grDevices, rainbow, heat.colors, dev.off, png, pdf)

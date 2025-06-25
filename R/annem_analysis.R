@@ -244,7 +244,7 @@ validate_annem_framework <- function(market, simulation_results, agent_performan
   
   validation <- rbind(validation, data.frame(
     Metric = "Agent Distribution Error", 
-    Mathematical_Definition = "Mean |π_actual - π_expected|",
+    Mathematical_Definition = "Mean |pi_actual - pi_expected|",
     Implemented_Value = round(dist_error, 4),
     Expected_Range = "< 0.05",
     Validation_Status = ifelse(dist_error < 0.05, "PASS", "ADJUST"),
@@ -258,7 +258,7 @@ validate_annem_framework <- function(market, simulation_results, agent_performan
   
   validation <- rbind(validation, data.frame(
     Metric = "Network Density",
-    Mathematical_Definition = "ρ(t) = 2|E|/(|V|(|V|-1))",
+    Mathematical_Definition = "rho(t) = 2|E|/(|V|(|V|-1))",
     Implemented_Value = round(density, 4),
     Expected_Range = "0.05-0.15",
     Validation_Status = ifelse(density >= 0.05 & density <= 0.15, "PASS", "REVIEW"),
@@ -267,7 +267,7 @@ validate_annem_framework <- function(market, simulation_results, agent_performan
   
   validation <- rbind(validation, data.frame(
     Metric = "Network Clustering",
-    Mathematical_Definition = "C = Σ(triangles)/Σ(triples)",
+    Mathematical_Definition = "C = Sum(triangles)/Sum(triples)",
     Implemented_Value = round(clustering, 4),
     Expected_Range = "0.3-0.7",
     Validation_Status = ifelse(!is.na(clustering) && clustering >= 0.3 && clustering <= 0.7, "PASS", "REVIEW"),
@@ -297,7 +297,7 @@ validate_annem_framework <- function(market, simulation_results, agent_performan
   
   validation <- rbind(validation, data.frame(
     Metric = "Wealth Gini Coefficient",
-    Mathematical_Definition = "G = Σ|w_i - w_j|/(2n²μ)",
+    Mathematical_Definition = "G = Sum|w_i - w_j|/(2n^2*mu)",
     Implemented_Value = round(gini_coeff, 4),
     Expected_Range = "0.2-0.8",
     Validation_Status = ifelse(gini_coeff >= 0.2 & gini_coeff <= 0.8, "PASS", "REVIEW"),
