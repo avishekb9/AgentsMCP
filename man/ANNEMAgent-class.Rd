@@ -24,7 +24,7 @@ Neural Network Forward Pass}
 \item{portfolio_return}{Numeric, portfolio return for this period}
 }
 \value{
-Numeric decision value in \link{-1, 1}
+Numeric decision value in range (-1, 1)
 Make Trading Decision
 
 Numeric decision value (negative = sell, positive = buy)
@@ -56,7 +56,7 @@ mathematical framework:
 
 \item{\code{wealth}}{Current wealth of the agent}
 
-\item{\code{risk_tolerance}}{Risk tolerance parameter \link{0,1}}
+\item{\code{risk_tolerance}}{Risk tolerance parameter (0,1)}
 
 \item{\code{nn_weights}}{List containing neural network weights}
 

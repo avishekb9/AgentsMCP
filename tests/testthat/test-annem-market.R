@@ -65,8 +65,10 @@ test_that("Benchmark comparison works with synthetic data", {
   # Test benchmark comparison
   comparison <- compare_with_benchmarks(annem_predictions, actual_returns)
   
-  expect_true(is.list(comparison))
-  expect_true("performance_summary" %in% names(comparison))
+  expect_true(is.data.frame(comparison))
+  expect_true("Model" %in% names(comparison))
+  expect_true("MSE" %in% names(comparison))
+  expect_true("ANNEM" %in% comparison$Model)
 })
 
 test_that("create_annem_market convenience function handles errors", {

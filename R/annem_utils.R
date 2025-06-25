@@ -4,6 +4,22 @@
 #' Collection of utility functions for network analysis, performance calculations,
 #' and general ANNEM operations.
 
+#' Global Variable Bindings
+#'
+#' @description 
+#' Global variable bindings to avoid R CMD check NOTEs.
+#' These are column names used in dplyr operations.
+#'
+#' @name global_variables
+#' @keywords internal
+globalVariables(c(
+  "agent_type", "total_return", "sharpe_ratio", "avg_ret", "avg_return", 
+  "avg_sharpe", "count", "step", "agent_ordered", "decision", "Model", 
+  "Value", "MSE", "MAE", "Directional_Accuracy", "MSE_rank", "MAE_rank", 
+  "DA_rank", "overall_rank", "value", "metric", "normalized_value", 
+  "clustering", "agent_id", "avg_wealth", "q25", "q75"
+))
+
 #' Evolve Network Connections
 #'
 #' Update network topology based on agent decision similarity and performance.
@@ -134,7 +150,7 @@ calculate_network_metrics <- function(network, weighted = FALSE) {
 #'
 #' @param x Numeric vector of values (e.g., wealth, returns)
 #'
-#' @return Numeric Gini coefficient [0, 1]
+#' @return Numeric Gini coefficient (0, 1)
 #'
 #' @examples
 #' wealth <- c(1000000, 1500000, 800000, 2000000, 1200000)

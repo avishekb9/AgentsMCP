@@ -182,7 +182,7 @@ process_market_returns <- function(returns, method = "standard", window_size = 2
 #' @param news_data Optional data frame with news sentiment (default: NULL)
 #' @param method Character string for sentiment calculation method ("technical", "news", "hybrid")
 #'
-#' @return Numeric vector of sentiment scores [-1, 1]
+#' @return Numeric vector of sentiment scores (-1, 1)
 #'
 #' @examples
 #' \dontrun{

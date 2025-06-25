@@ -20,7 +20,7 @@
 #' @field id Character string identifying the agent
 #' @field type Agent type (one of six types)
 #' @field wealth Current wealth of the agent
-#' @field risk_tolerance Risk tolerance parameter [0,1]
+#' @field risk_tolerance Risk tolerance parameter (0,1)
 #' @field nn_weights List containing neural network weights
 #' @field memory List containing agent's memory of past observations
 #' @field connections Numeric vector of connected agents
@@ -90,7 +90,7 @@ ANNEMAgent <- setRefClass("ANNEMAgent",
     #' Neural Network Forward Pass
     #' 
     #' @param state_vector Numeric vector of input features
-    #' @return Numeric decision value in [-1, 1]
+    #' @return Numeric decision value in range (-1, 1)
     neural_decision = function(state_vector) {
       "Forward propagation through neural network with ReLU activation"
       

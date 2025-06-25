@@ -21,7 +21,7 @@ calculate_market_sentiment(
 \item{method}{Character string for sentiment calculation method ("technical", "news", "hybrid")}
 }
 \value{
-Numeric vector of sentiment scores \link{-1, 1}
+Numeric vector of sentiment scores (-1, 1)
 }
 \description{
 Compute market sentiment scores based on return patterns, volatility,

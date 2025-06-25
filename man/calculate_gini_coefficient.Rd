@@ -10,7 +10,7 @@ calculate_gini_coefficient(x)
 \item{x}{Numeric vector of values (e.g., wealth, returns)}
 }
 \value{
-Numeric Gini coefficient \link{0, 1}
+Numeric Gini coefficient (0, 1)
 }
 \description{
 Compute Gini coefficient for wealth or performance distribution analysis.

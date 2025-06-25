@@ -2,7 +2,7 @@
 % Please edit documentation in R/annem_utils.R
 \name{evolve_network}
 \alias{evolve_network}
-\title{Utility Functions for ANNEM Package}
+\title{Evolve Network Connections}
 \usage{
 evolve_network(
   network,
@@ -24,10 +24,6 @@ evolve_network(
 Updated igraph network object
 }
 \description{
-Collection of utility functions for network analysis, performance calculations,
-and general ANNEM operations.
-Evolve Network Connections
-
 Update network topology based on agent decision similarity and performance.
 }
 \examples{
