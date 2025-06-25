@@ -73,7 +73,7 @@ importFrom(networkD3, forceNetwork, saveNetwork)
 importFrom(gridExtra, grid.arrange)
 importFrom(viridis, viridis)
 importFrom(tidyr, pivot_longer, pivot_wider)
-importFrom(stats, rnorm, runif, tanh, pmax, sd, mean, median, quantile,
+importFrom(stats, rnorm, runif, sd, median, quantile,
            cor, cov, lm, fitted, residuals, na.omit, density, dist)
 importFrom(utils, head, tail, write.csv, read.csv, install.packages)
 importFrom(graphics, plot, lines, points, legend, par)
