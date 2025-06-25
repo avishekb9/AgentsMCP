@@ -218,7 +218,7 @@ compare_with_benchmarks <- function(annem_predictions, actual_returns,
     # Simple VAR model (AR(1) for univariate case)
     if (n_obs > 10) {
       var_model <- lm(actual_returns[-1] ~ actual_returns[-n_obs])
-      var_predictions <- c(0, fitted(var_model))  # Add zero for first observation
+      var_predictions <- c(0, stats::fitted(var_model))  # Add zero for first observation
     } else {
       var_predictions <- rep(mean(actual_returns), n_obs)
     }
@@ -234,8 +234,8 @@ compare_with_benchmarks <- function(annem_predictions, actual_returns,
   if ("ARIMA" %in% benchmark_models) {
     # ARIMA model
     tryCatch({
-      arima_model <- auto.arima(actual_returns)
-      arima_predictions <- fitted(arima_model)
+      arima_model <- forecast::auto.arima(actual_returns)
+      arima_predictions <- stats::fitted(arima_model)
       benchmark_predictions[["ARIMA"]] <- as.numeric(arima_predictions)
     }, error = function(e) {
       benchmark_predictions[["ARIMA"]] <<- rep(mean(actual_returns), n_obs)
@@ -302,7 +302,7 @@ fit_var_model <- function(returns_data, lag_order = 1) {
       # Fit AR model
       ar_model <- lm(returns_data[(lag_order+1):n_obs] ~ 
                      returns_data[lag_order:(n_obs-1)])
-      fitted_values <- c(rep(0, lag_order), fitted(ar_model))
+      fitted_values <- c(rep(0, lag_order), stats::fitted(ar_model))
     } else {
       # Not enough data - return mean
       fitted_values <- rep(mean(returns_data), n_obs)

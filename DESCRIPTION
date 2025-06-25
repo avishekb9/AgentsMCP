@@ -4,8 +4,7 @@ Title: Agentic Neural Network Economic Model with MCP Communication
 Version: 1.0.0
 Date: 2025-06-25
 Authors@R: c(
-    person("Avishek", "Bhandari", email = "bavisek@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0000-0000-0000")),
+    person("Avishek", "Bhandari", email = "bavisek@gmail.com", role = c("aut", "cre")),
     person("ANNEM Research Consortium", role = "ctb")
     )
 Maintainer: Avishek Bhandari <bavisek@gmail.com>

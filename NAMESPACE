@@ -55,7 +55,7 @@ importFrom(igraph, graph_from_adjacency_matrix, edge_density, transitivity,
            eigen_centrality, sample_smallworld, as_adjacency_matrix,
            is_connected, watts.strogatz.game)
 importFrom(nnet, nnet)
-importFrom(forecast, auto.arima, fitted)
+importFrom(forecast, auto.arima)
 importFrom(rugarch, ugarchspec, ugarchfit)
 importFrom(PerformanceAnalytics, SharpeRatio, Return.calculate)
 importFrom(xts, xts, coredata, index)
