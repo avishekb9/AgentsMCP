@@ -1,0 +1,342 @@
+---
+title: "Getting Started with AgentsMCP"
+author: "Avisek Banerjee"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with AgentsMCP}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+# Introduction to AgentsMCP
+
+The AgentsMCP package provides a comprehensive implementation of the Agentic Neural Network Economic Model (ANNEM), featuring heterogeneous AI agents with neural decision-making capabilities, Model Context Protocol (MCP) communication, and dynamic network formation.
+
+## Installation
+
+```{r eval=FALSE}
+# Install from GitHub
+devtools::install_github("avishekb9/AgentsMCP")
+```
+
+```{r setup}
+library(AgentsMCP)
+library(ggplot2)
+library(dplyr)
+```
+
+## Quick Start Example
+
+Let's start with a simple ANNEM analysis using a small number of agents:
+
+```{r basic_example, eval=FALSE}
+# Set seed for reproducibility
+set_annem_seed(42)
+
+# Run a basic ANNEM analysis
+results <- run_annem_analysis(
+  symbols = c("AAPL", "MSFT"),
+  n_agents = 100,
+  n_steps = 50,
+  save_results = FALSE,
+  verbose = FALSE
+)
+
+# View summary
+annem_summary(results)
+```
+
+## Understanding Agent Types
+
+ANNEM implements six different types of heterogeneous agents:
+
+1. **Neural Momentum**: Trend-following agents with neural network enhancement
+2. **Contrarian AI**: Mean-reversion agents with AI-based signals  
+3. **Fundamentalist ML**: Technical analysis agents with machine learning
+4. **Adaptive Noise**: Random strategy agents with adaptive learning
+5. **Social Network**: Peer influence and herding behavior agents
+6. **Meta Learning**: MAML-inspired strategy adaptation agents
+
+### Creating Individual Agents
+
+```{r agent_creation}
+# Create different types of agents
+momentum_agent <- create_annem_agent("agent_001", "neural_momentum", 1000000)
+contrarian_agent <- create_annem_agent("agent_002", "contrarian_ai", 1000000)
+
+# Display agent properties
+cat("Momentum Agent:\n")
+cat("- ID:", momentum_agent$id, "\n")
+cat("- Type:", momentum_agent$type, "\n")
+cat("- Wealth:", scales::dollar(momentum_agent$wealth), "\n")
+cat("- Risk Tolerance:", round(momentum_agent$risk_tolerance, 3), "\n\n")
+
+cat("Contrarian Agent:\n")
+cat("- ID:", contrarian_agent$id, "\n")
+cat("- Type:", contrarian_agent$type, "\n")
+cat("- Wealth:", scales::dollar(contrarian_agent$wealth), "\n")
+cat("- Risk Tolerance:", round(contrarian_agent$risk_tolerance, 3), "\n")
+```
+
+## Working with Market Data
+
+The package can automatically download market data or work with synthetic data:
+
+```{r synthetic_data}
+# Generate synthetic market data for testing
+synthetic_data <- generate_synthetic_data(
+  n_days = 100,
+  n_assets = 2,
+  annual_return = 0.08,
+  annual_volatility = 0.20
+)
+
+cat("Generated", nrow(synthetic_data$prices), "days of data for", 
+    ncol(synthetic_data$prices), "assets\n")
+cat("Assets:", paste(synthetic_data$symbols, collapse = ", "), "\n")
+
+# Plot synthetic price evolution
+if (requireNamespace("ggplot2", quietly = TRUE)) {
+  price_df <- data.frame(
+    day = 1:nrow(synthetic_data$prices),
+    price = synthetic_data$prices[, 1]
+  )
+  
+  ggplot(price_df, aes(x = day, y = price)) +
+    geom_line(color = "steelblue", size = 1) +
+    labs(
+      title = "Synthetic Asset Price Evolution",
+      x = "Trading Day",
+      y = "Price ($)"
+    ) +
+    theme_minimal()
+}
+```
+
+## Creating and Running Market Simulations
+
+### Basic Market Creation
+
+```{r market_creation, eval=FALSE}
+# Create a market environment
+market <- create_annem_market(
+  n_agents = 200,
+  symbols = c("AAPL", "MSFT", "GOOGL")
+)
+
+# Examine the market
+cat("Market created with", length(market$agents), "agents\n")
+cat("Network density:", round(igraph::edge_density(market$network), 4), "\n")
+
+# Check agent type distribution
+agent_types <- sapply(market$agents, function(a) a$type)
+type_distribution <- table(agent_types)
+print(type_distribution)
+```
+
+### Running Simulations
+
+```{r simulation_example, eval=FALSE}
+# Run simulation with the market
+simulation_results <- market$run_simulation(n_steps = 100, verbose = TRUE)
+
+# Analyze results
+cat("Simulation completed with", simulation_results$n_steps, "steps\n")
+cat("Agent decisions matrix dimensions:", 
+    paste(dim(simulation_results$agent_decisions), collapse = " x "), "\n")
+cat("Wealth evolution matrix dimensions:", 
+    paste(dim(simulation_results$agent_wealth), collapse = " x "), "\n")
+```
+
+## Performance Analysis
+
+### Agent Performance Metrics
+
+```{r performance_analysis, eval=FALSE}
+# Analyze agent performance
+agent_performance <- market$analyze_agent_performance()
+
+# Summary by agent type
+performance_summary <- agent_performance %>%
+  group_by(agent_type) %>%
+  summarise(
+    count = n(),
+    avg_return = mean(total_return) * 100,
+    median_return = median(total_return) * 100,
+    avg_sharpe = mean(sharpe_ratio),
+    .groups = 'drop'
+  ) %>%
+  arrange(desc(avg_return))
+
+print(performance_summary)
+```
+
+### Network Analysis
+
+```{r network_analysis, eval=FALSE}
+# Analyze network evolution
+network_metrics <- market$analyze_network_evolution()
+
+# Display network evolution summary
+cat("Network Evolution Summary:\n")
+cat("- Initial density:", round(network_metrics$density[1], 4), "\n")
+cat("- Final density:", round(tail(network_metrics$density, 1), 4), "\n")
+cat("- Average clustering:", round(mean(network_metrics$clustering, na.rm = TRUE), 4), "\n")
+```
+
+## Visualization
+
+The package provides comprehensive visualization capabilities:
+
+```{r visualization_example, eval=FALSE}
+# Create performance plots
+perf_plots <- plot_agent_performance(agent_performance)
+
+# Display distribution plot
+print(perf_plots$performance_dist)
+
+# Create network evolution plots
+network_plots <- plot_network_evolution(network_metrics)
+print(network_plots$evolution)
+
+# Create wealth dynamics plots
+wealth_plots <- plot_wealth_dynamics(simulation_results)
+print(wealth_plots$by_type)
+```
+
+## Model Comparison and Validation
+
+### Benchmark Comparison
+
+```{r benchmarking, eval=FALSE}
+# Compare with traditional models
+comparison_results <- market$compare_with_benchmarks()
+
+print(comparison_results)
+
+# Visualize comparison
+comparison_plots <- plot_model_comparison(comparison_results)
+print(comparison_plots$comparison)
+```
+
+### Mathematical Framework Validation
+
+```{r validation, eval=FALSE}
+# Validate implementation against mathematical framework
+validation_results <- validate_annem_framework(market, simulation_results, agent_performance)
+
+# Display validation summary
+passed_tests <- sum(validation_results$Validation_Status == "PASS")
+total_tests <- nrow(validation_results)
+
+cat("Framework Validation Results:\n")
+cat("Tests passed:", passed_tests, "out of", total_tests, "\n")
+
+# Show any failed tests
+failed_tests <- validation_results[validation_results$Validation_Status != "PASS", ]
+if (nrow(failed_tests) > 0) {
+  cat("\nTests requiring attention:\n")
+  for (i in 1:nrow(failed_tests)) {
+    cat("-", failed_tests$Metric[i], ":", failed_tests$Validation_Status[i], "\n")
+  }
+}
+```
+
+## Advanced Configuration
+
+### Custom Agent Distributions
+
+```{r custom_config}
+# Get default configuration
+config <- get_annem_config()
+
+cat("Default Agent Types:\n")
+for (i in 1:length(config$agent_types)) {
+  cat("-", config$agent_types[i], ":", 
+      scales::percent(config$agent_distribution[i]), "\n")
+}
+
+cat("\nDefault Parameters:\n")
+cat("- Default agents:", config$default_n_agents, "\n")
+cat("- Default steps:", config$default_n_steps, "\n")
+cat("- Risk-free rate:", scales::percent(config$risk_free_rate), "\n")
+```
+
+### Performance Optimization
+
+For large-scale simulations, consider these optimization strategies:
+
+```{r optimization_tips, eval=FALSE}
+# For testing and development
+quick_results <- run_annem_analysis(
+  symbols = c("AAPL"),
+  n_agents = 50,
+  n_steps = 25,
+  save_results = FALSE
+)
+
+# For production analysis
+production_results <- run_annem_analysis(
+  symbols = c("AAPL", "MSFT", "GOOGL", "TSLA", "NVDA"),
+  n_agents = 1000,
+  n_steps = 250,
+  save_results = TRUE,
+  output_dir = "annem_production_results"
+)
+```
+
+## Error Handling and Troubleshooting
+
+### Common Issues and Solutions
+
+1. **Internet Connection**: If market data download fails, use synthetic data:
+
+```{r error_handling, eval=FALSE}
+# Fallback to synthetic data
+tryCatch({
+  real_data <- load_market_data(c("AAPL", "MSFT"))
+}, error = function(e) {
+  cat("Market data download failed, using synthetic data\n")
+  real_data <- generate_synthetic_data(n_days = 252, n_assets = 2)
+})
+```
+
+2. **Memory Issues**: Reduce simulation size for large analyses:
+
+```{r memory_handling, eval=FALSE}
+# Check available memory and adjust parameters accordingly
+memory_limit <- as.numeric(gsub("[^0-9.]", "", memory.size(max = TRUE)))
+
+if (memory_limit < 8000) {  # Less than 8GB
+  n_agents <- 500
+  n_steps <- 100
+} else {
+  n_agents <- 1000
+  n_steps <- 250
+}
+
+cat("Using", n_agents, "agents and", n_steps, "steps based on available memory\n")
+```
+
+## Next Steps
+
+- Explore the **Advanced Modeling** vignette for sophisticated analyses
+- Check out the **Network Analysis** vignette for detailed network studies
+- Review the **Visualization Guide** for comprehensive plotting options
+- Visit the package documentation for complete function references
+
+## References
+
+1. Farmer, J. D., & Foley, D. (2009). The economy needs agent-based modelling. *Nature*, 460(7256), 685-686.
+2. Jackson, M. O. (2008). *Social and economic networks*. Princeton University Press.
+3. Billio, M., Getmansky, M., Lo, A. W., & Pelizzon, L. (2012). Econometric measures of connectedness and systemic risk in the finance and insurance sectors. *Journal of Financial Economics*, 104(3), 535-559.

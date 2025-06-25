@@ -1,0 +1,54 @@
+Package: AgentsMCP
+Type: Package
+Title: Agentic Neural Network Economic Model with MCP Communication
+Version: 1.0.0
+Date: 2025-06-25
+Authors@R: c(
+    person("Avisek", "Banerjee", email = "avishekb9@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0000-0000-0000")),
+    person("ANNEM Research Consortium", role = "ctb")
+    )
+Maintainer: Avisek Banerjee <avishekb9@gmail.com>
+Description: A comprehensive implementation of the Agentic Neural Network Economic Model (ANNEM), 
+    featuring heterogeneous AI agents with neural decision-making capabilities, Model Context Protocol 
+    (MCP) communication, dynamic network formation, and empirical validation using daily stock market data. 
+    The package provides tools for agent-based economic modeling, financial network analysis, and 
+    performance comparison with traditional econometric models including DSGE and VAR frameworks.
+License: MIT + file LICENSE
+URL: https://github.com/avishekb9/AgentsMCP
+BugReports: https://github.com/avishekb9/AgentsMCP/issues
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 4.0.0)
+Imports:
+    quantmod (>= 0.4.0),
+    igraph (>= 1.2.0),
+    nnet (>= 7.3.0),
+    forecast (>= 8.0.0),
+    rugarch (>= 1.4.0),
+    PerformanceAnalytics (>= 2.0.0),
+    xts (>= 0.12.0),
+    dplyr (>= 1.0.0),
+    ggplot2 (>= 3.3.0),
+    corrplot (>= 0.9.0),
+    plotly (>= 4.9.0),
+    networkD3 (>= 0.4.0),
+    gridExtra (>= 2.3.0),
+    viridis (>= 0.6.0),
+    tidyr (>= 1.1.0)
+Suggests:
+    testthat (>= 3.0.0),
+    knitr (>= 1.3.0),
+    rmarkdown (>= 2.0.0),
+    devtools (>= 2.4.0),
+    pkgdown (>= 1.6.0)
+VignetteBuilder: knitr
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
+SystemRequirements: Internet connection for downloading market data
+NeedsCompilation: no
+Repository: CRAN
+Classification/MSC: 91B84, 91B70, 91B26, 62M45
+Keywords: agent-based-modeling, financial-networks, neural-networks, economic-modeling, 
+    mcp-protocol, network-analysis, financial-econometrics, artificial-intelligence

@@ -1,0 +1,13 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^\.github$
+^\.travis\.yml$
+^appveyor\.yml$
+^codecov\.yml$
+^data-raw$
+^docs$
+^_pkgdown\.yml$
+^pkgdown$
+^\.git$
+^\.gitignore$
