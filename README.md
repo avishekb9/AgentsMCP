@@ -241,7 +241,7 @@ If you use AgentsMCP in your research, please cite:
 ```bibtex
 @misc{banerjee2025agentsmcp,
   title={AgentsMCP: Agentic Neural Network Economic Model with MCP Communication},
-  author={Banerjee, Avisek},
+  author={Bhandari, Avishek},
   year={2025},
   url={https://github.com/avishekb9/AgentsMCP},
   note={R package version 1.0.0}
