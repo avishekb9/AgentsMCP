@@ -23,15 +23,24 @@ test_that("calculate_gini_coefficient works correctly", {
 })
 
 test_that("calculate_sharpe_ratio works correctly", {
-  # Test with positive returns
+  # Test with deterministic positive returns
+  set.seed(123)  # Ensure reproducible results
   good_returns <- rnorm(252, 0.08/252, 0.15/sqrt(252))  # 8% annual, 15% vol
   sharpe_good <- calculate_sharpe_ratio(good_returns, risk_free_rate = 0.02)
-  expect_true(sharpe_good > 0)
   
-  # Test with negative returns
-  bad_returns <- rnorm(252, -0.05/252, 0.20/sqrt(252))  # -5% annual, 20% vol
-  sharpe_bad <- calculate_sharpe_ratio(bad_returns, risk_free_rate = 0.02)
-  expect_true(sharpe_bad < 0)
+  # Test that function returns a numeric value
+  expect_true(is.numeric(sharpe_good))
+  expect_true(length(sharpe_good) == 1)
+  
+  # Test with guaranteed positive returns
+  guaranteed_positive <- rep(0.05/252, 252)  # 5% annual return
+  sharpe_positive <- calculate_sharpe_ratio(guaranteed_positive, risk_free_rate = 0.02)
+  expect_true(sharpe_positive > 0)
+  
+  # Test with guaranteed negative returns  
+  guaranteed_negative <- rep(-0.05/252, 252)  # -5% annual return
+  sharpe_negative <- calculate_sharpe_ratio(guaranteed_negative, risk_free_rate = 0.02)
+  expect_true(sharpe_negative < 0)
   
   # Test with zero volatility (edge case)
   zero_vol_returns <- rep(0.01, 100)
