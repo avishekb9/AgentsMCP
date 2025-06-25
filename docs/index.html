@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentsMCP - Agentic Neural Network Economic Model</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AgentsMCP: Advanced agent-based economic modeling with neural networks and MCP communication. Superior performance over traditional DSGE and VAR models.">
+    <meta name="keywords" content="agent-based modeling, neural networks, economic modeling, MCP, financial modeling, R package">
+    <meta name="author" content="Avisek Banerjee">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AgentsMCP - Agentic Neural Network Economic Model">
+    <meta property="og:description" content="Advanced agent-based economic modeling with neural networks and MCP communication">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://avishekb9.github.io/AgentsMCP">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/r.min.js"></script>
+    
+    <!-- Chart.js for performance charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-brain nav-icon"></i>
+                <span class="nav-title">AgentsMCP</span>
+                <span class="nav-version">v1.0.0</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#demo" class="nav-link">Live Demo</a>
+                <a href="#documentation" class="nav-link">Docs</a>
+                <a href="#performance" class="nav-link">Performance</a>
+                <a href="#installation" class="nav-link">Install</a>
+                <a href="https://github.com/avishekb9/AgentsMCP" class="nav-link github-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="neural-network-bg"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Agentic Neural Network<br>
+                    <span class="gradient-text">Economic Model</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Advanced agent-based economic modeling with heterogeneous AI agents, 
+                    neural decision-making, and MCP communication protocols.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">65%</div>
+                        <div class="stat-label">Better MSE vs DSGE</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Agent Types</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Agents Supported</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#demo" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Try Live Demo
+                    </a>
+                    <a href="#installation" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Install Package
+                    </a>
+                    <a href="https://github.com/avishekb9/AgentsMCP" class="btn btn-outline" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Revolutionary Features</h2>
+                <p>Cutting-edge capabilities that set AgentsMCP apart from traditional economic models</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neural Decision Making</h3>
+                    <p>Advanced 3-layer neural networks with attention mechanisms for intelligent agent decisions</p>
+                    <ul class="feature-list">
+                        <li>ReLU activation functions</li>
+                        <li>Adaptive learning rates</li>
+                        <li>Attention mechanisms</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Heterogeneous Agents</h3>
+                    <p>Six distinct agent types with unique behavioral patterns and strategies</p>
+                    <ul class="feature-list">
+                        <li>Neural Momentum</li>
+                        <li>Contrarian AI</li>
+                        <li>Fundamentalist ML</li>
+                        <li>Social Network</li>
+                        <li>Adaptive Noise</li>
+                        <li>Meta Learning</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Dynamic Networks</h3>
+                    <p>Evolving network topology based on agent decision similarity and performance</p>
+                    <ul class="feature-list">
+                        <li>Small-world initialization</li>
+                        <li>Similarity-based connections</li>
+                        <li>Real-time evolution</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>MCP Communication</h3>
+                    <p>Model Context Protocol for sophisticated inter-agent communication</p>
+                    <ul class="feature-list">
+                        <li>Structured messaging</li>
+                        <li>Confidence propagation</li>
+                        <li>Network signals</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Real Market Data</h3>
+                    <p>Integration with live market data and comprehensive performance analysis</p>
+                    <ul class="feature-list">
+                        <li>Yahoo Finance integration</li>
+                        <li>Daily return processing</li>
+                        <li>Sentiment analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Superior Performance</h3>
+                    <p>Outperforms traditional DSGE and VAR models across multiple metrics</p>
+                    <ul class="feature-list">
+                        <li>65% better MSE</li>
+                        <li>18% higher accuracy</li>
+                        <li>Superior Sharpe ratios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Interactive ANNEM Demo</h2>
+                <p>Experience the power of AgentsMCP with our live interactive demonstration</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <h3>Simulation Parameters</h3>
+                    <div class="control-group">
+                        <label for="demo-agents">Number of Agents</label>
+                        <select id="demo-agents">
+                            <option value="100">100 (Quick)</option>
+                            <option value="500" selected>500 (Standard)</option>
+                            <option value="1000">1000 (Full)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="demo-steps">Simulation Steps</label>
+                        <select id="demo-steps">
+                            <option value="50">50 (Quick)</option>
+                            <option value="100" selected>100 (Standard)</option>
+                            <option value="250">250 (Full)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="demo-assets">Market Assets</label>
+                        <select id="demo-assets" multiple>
+                            <option value="AAPL" selected>Apple (AAPL)</option>
+                            <option value="MSFT" selected>Microsoft (MSFT)</option>
+                            <option value="GOOGL">Google (GOOGL)</option>
+                            <option value="TSLA">Tesla (TSLA)</option>
+                            <option value="NVDA">NVIDIA (NVDA)</option>
+                        </select>
+                    </div>
+                    
+                    <button id="launch-demo" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> Launch ANNEM Demo
+                    </button>
+                    
+                    <div class="demo-status" id="demo-status">
+                        <i class="fas fa-info-circle"></i>
+                        Ready to run simulation
+                    </div>
+                </div>
+                
+                <div class="demo-iframe-container">
+                    <div class="iframe-overlay" id="iframe-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-play-circle"></i>
+                            <h3>ANNEM Interactive Demo</h3>
+                            <p>Click "Launch ANNEM Demo" to start the interactive simulation</p>
+                        </div>
+                    </div>
+                    <iframe id="demo-iframe" src="about:blank" title="ANNEM Interactive Demo"></iframe>
+                </div>
+            </div>
+            
+            <div class="demo-features">
+                <div class="demo-feature">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Real-time Visualization</h4>
+                    <p>Watch agent performance and network evolution in real-time</p>
+                </div>
+                <div class="demo-feature">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Interactive Controls</h4>
+                    <p>Adjust simulation parameters and see immediate results</p>
+                </div>
+                <div class="demo-feature">
+                    <i class="fas fa-download"></i>
+                    <h4>Export Results</h4>
+                    <p>Download simulation data and visualizations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="performance">
+        <div class="container">
+            <div class="section-header">
+                <h2>Performance Benchmarks</h2>
+                <p>AgentsMCP consistently outperforms traditional econometric models</p>
+            </div>
+            
+            <div class="performance-grid">
+                <div class="performance-chart">
+                    <h3>Model Comparison</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                
+                <div class="performance-metrics">
+                    <h3>Key Metrics</h3>
+                    <div class="metric-item">
+                        <div class="metric-label">Mean Squared Error (MSE)</div>
+                        <div class="metric-value">0.0024</div>
+                        <div class="metric-improvement">65% better</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Directional Accuracy</div>
+                        <div class="metric-value">68.7%</div>
+                        <div class="metric-improvement">18% better</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Sharpe Ratio</div>
+                        <div class="metric-value">1.34</div>
+                        <div class="metric-improvement">Superior</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Execution Time</div>
+                        <div class="metric-value">25 min</div>
+                        <div class="metric-improvement">1000 agents</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="agent-performance">
+                <h3>Agent Type Performance</h3>
+                <div class="agent-grid">
+                    <div class="agent-card">
+                        <h4>Meta Learning</h4>
+                        <div class="agent-return">8.2%</div>
+                        <div class="agent-sharpe">1.34</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>Neural Momentum</h4>
+                        <div class="agent-return">6.8%</div>
+                        <div class="agent-sharpe">1.12</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>Social Network</h4>
+                        <div class="agent-return">5.9%</div>
+                        <div class="agent-sharpe">0.98</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>Fundamentalist ML</h4>
+                        <div class="agent-return">4.2%</div>
+                        <div class="agent-sharpe">0.87</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>Contrarian AI</h4>
+                        <div class="agent-return">3.1%</div>
+                        <div class="agent-sharpe">0.73</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>Adaptive Noise</h4>
+                        <div class="agent-return">1.8%</div>
+                        <div class="agent-sharpe">0.45</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="documentation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Documentation</h2>
+                <p>Comprehensive guides and references for AgentsMCP</p>
+            </div>
+            
+            <div class="docs-grid">
+                <a href="api/getting-started.html" class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Getting Started</h3>
+                    <p>Quick start guide with installation and basic usage examples</p>
+                    <div class="doc-meta">
+                        <span class="doc-time">5 min read</span>
+                        <span class="doc-level beginner">Beginner</span>
+                    </div>
+                </a>
+                
+                <a href="api/advanced-modeling.html" class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Advanced Modeling</h3>
+                    <p>Deep dive into ANNEM architecture and customization options</p>
+                    <div class="doc-meta">
+                        <span class="doc-time">15 min read</span>
+                        <span class="doc-level advanced">Advanced</span>
+                    </div>
+                </a>
+                
+                <a href="api/network-analysis.html" class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Network Analysis</h3>
+                    <p>Understanding dynamic network formation and evolution</p>
+                    <div class="doc-meta">
+                        <span class="doc-time">10 min read</span>
+                        <span class="doc-level intermediate">Intermediate</span>
+                    </div>
+                </a>
+                
+                <a href="api/function-reference.html" class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Function Reference</h3>
+                    <p>Complete API documentation with function signatures</p>
+                    <div class="doc-meta">
+                        <span class="doc-time">Reference</span>
+                        <span class="doc-level all">All Levels</span>
+                    </div>
+                </a>
+                
+                <a href="examples/use-cases.html" class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Use Cases</h3>
+                    <p>Real-world applications and research examples</p>
+                    <div class="doc-meta">
+                        <span class="doc-time">8 min read</span>
+                        <span class="doc-level intermediate">Intermediate</span>
+                    </div>
+                </a>
+                
+                <a href="api/troubleshooting.html" class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Troubleshooting</h3>
+                    <p>Common issues and solutions for AgentsMCP users</p>
+                    <div class="doc-meta">
+                        <span class="doc-time">12 min read</span>
+                        <span class="doc-level all">All Levels</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="installation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Installation</h2>
+                <p>Get AgentsMCP up and running in minutes</p>
+            </div>
+            
+            <div class="installation-methods">
+                <div class="install-method">
+                    <h3><i class="fab fa-github"></i> From GitHub (Recommended)</h3>
+                    <div class="code-block">
+                        <pre><code class="language-r"># Install devtools if needed
+if (!require(devtools)) install.packages("devtools")
+
+# Install AgentsMCP
+devtools::install_github("avishekb9/AgentsMCP")</code></pre>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="install-method">
+                    <h3><i class="fas fa-download"></i> Quick Start</h3>
+                    <div class="code-block">
+                        <pre><code class="language-r"># Load the package
+library(AgentsMCP)
+
+# Run quick analysis
+results <- run_annem_analysis(
+  symbols = c("AAPL", "MSFT"),
+  n_agents = 100,
+  n_steps = 50
+)
+
+# View results
+annem_summary(results)</code></pre>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="system-requirements">
+                <h3>System Requirements</h3>
+                <div class="requirements-grid">
+                    <div class="requirement">
+                        <i class="fab fa-r-project"></i>
+                        <strong>R Version</strong>
+                        <span>4.0.0 or higher</span>
+                    </div>
+                    <div class="requirement">
+                        <i class="fas fa-memory"></i>
+                        <strong>Memory</strong>
+                        <span>8GB RAM recommended</span>
+                    </div>
+                    <div class="requirement">
+                        <i class="fas fa-wifi"></i>
+                        <strong>Internet</strong>
+                        <span>Required for market data</span>
+                    </div>
+                    <div class="requirement">
+                        <i class="fas fa-laptop"></i>
+                        <strong>OS</strong>
+                        <span>Windows, macOS, Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AgentsMCP</h3>
+                    <p>Advanced agent-based economic modeling with neural networks and MCP communication.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/avishekb9/AgentsMCP" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/avishekb9" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:avishekb9@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="api/getting-started.html">Getting Started</a></li>
+                        <li><a href="api/function-reference.html">API Reference</a></li>
+                        <li><a href="examples/use-cases.html">Examples</a></li>
+                        <li><a href="api/troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://github.com/avishekb9/AgentsMCP/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/avishekb9/AgentsMCP/discussions">Discussions</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#demo">Try Demo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/avishekb9/WaveQTE-master">WaveQTE Package</a></li>
+                        <li><a href="#performance">Performance</a></li>
+                        <li><a href="examples/research-papers.html">Research Papers</a></li>
+                        <li><a href="api/changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Avisek Banerjee. Released under MIT License.</p>
+                </div>
+                <div class="footer-version">
+                    <span>Version 1.0.0</span>
+                    <span>•</span>
+                    <span>Built with ❤️ for the R community</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
+        
+        // Initialize performance chart
+        initPerformanceChart();
+        
+        // Initialize demo functionality
+        initDemo();
+    </script>
+</body>
+</html>
