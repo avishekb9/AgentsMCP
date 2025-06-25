@@ -85,7 +85,7 @@ calculate_network_metrics <- function(network, weighted = FALSE) {
     metrics$diameter <- diameter(network, directed = FALSE, unconnected = TRUE)
   } else {
     # For disconnected networks
-    components <- decompose(network)
+    components <- igraph::decompose(network)
     largest_component <- components[[which.max(sapply(components, vcount))]]
     metrics$avg_path_length <- mean_distance(largest_component, directed = FALSE)
     metrics$diameter <- diameter(largest_component, directed = FALSE)
