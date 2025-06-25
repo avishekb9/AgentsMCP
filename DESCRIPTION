@@ -21,6 +21,7 @@ LazyData: true
 Depends:
     R (>= 4.0.0)
 Imports:
+    methods,
     quantmod (>= 0.4.0),
     igraph (>= 1.2.0),
     nnet (>= 7.3.0),
@@ -50,5 +51,3 @@ SystemRequirements: Internet connection for downloading market data
 NeedsCompilation: no
 Repository: CRAN
 Classification/MSC: 91B84, 91B70, 91B26, 62M45
-Keywords: agent-based-modeling, financial-networks, neural-networks, economic-modeling, 
-    mcp-protocol, network-analysis, financial-econometrics, artificial-intelligence
