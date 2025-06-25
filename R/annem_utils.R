@@ -81,13 +81,13 @@ calculate_network_metrics <- function(network, weighted = FALSE) {
   metrics$local_clustering_avg <- mean(transitivity(network, type = "local"), na.rm = TRUE)
   
   if (is_connected(network)) {
-    metrics$avg_path_length <- average.path.length(network, directed = FALSE, unconnected = TRUE)
+    metrics$avg_path_length <- mean_distance(network, directed = FALSE, unconnected = TRUE)
     metrics$diameter <- diameter(network, directed = FALSE, unconnected = TRUE)
   } else {
     # For disconnected networks
     components <- decompose(network)
     largest_component <- components[[which.max(sapply(components, vcount))]]
-    metrics$avg_path_length <- average.path.length(largest_component, directed = FALSE)
+    metrics$avg_path_length <- mean_distance(largest_component, directed = FALSE)
     metrics$diameter <- diameter(largest_component, directed = FALSE)
     metrics$n_components <- length(components)
   }
@@ -113,9 +113,9 @@ calculate_network_metrics <- function(network, weighted = FALSE) {
   
   # Small-world properties
   # Compare to random network with same n_nodes and density
-  random_net <- erdos.renyi.game(metrics$n_nodes, metrics$density, type = "gnp")
+  random_net <- sample_gnp(metrics$n_nodes, metrics$density)
   random_clustering <- transitivity(random_net, type = "global")
-  random_path_length <- average.path.length(random_net)
+  random_path_length <- mean_distance(random_net)
   
   metrics$small_world_sigma <- (metrics$global_clustering / random_clustering) / 
                               (metrics$avg_path_length / random_path_length)

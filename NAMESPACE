@@ -43,10 +43,10 @@ export(annem_summary)
 # Import functions from other packages
 importFrom(quantmod, getSymbols, Ad)
 importFrom(igraph, graph_from_adjacency_matrix, edge_density, transitivity, 
-           average.path.length, degree, betweenness, closeness, 
+           mean_distance, degree, betweenness, closeness, 
            eigen_centrality, sample_smallworld, as_adjacency_matrix,
            is_connected, watts.strogatz.game, vcount, ecount, diameter,
-           erdos.renyi.game, cluster_louvain, modularity, igraph_to_networkD3)
+           sample_gnp, cluster_louvain, modularity, igraph_to_networkD3)
 importFrom(nnet, nnet)
 importFrom(forecast, auto.arima)
 importFrom(rugarch, ugarchspec, ugarchfit)
