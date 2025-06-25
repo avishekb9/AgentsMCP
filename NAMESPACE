@@ -9,23 +9,15 @@ export(run_annem_analysis)
 export(create_annem_agent)
 export(create_annem_market)
 
-# Agent Strategy Functions
-export(neural_momentum_strategy)
-export(contrarian_ai_strategy)
-export(fundamentalist_ml_strategy)
-export(adaptive_noise_strategy)
-export(social_network_strategy)
-export(meta_learning_strategy)
-
 # Network Functions
 export(evolve_network)
 export(calculate_network_metrics)
-export(analyze_network_evolution)
 
 # Data Functions
 export(load_market_data)
 export(process_market_returns)
 export(calculate_market_sentiment)
+export(generate_synthetic_data)
 
 # Visualization Functions
 export(plot_agent_performance)
