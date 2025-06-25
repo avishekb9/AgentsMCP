@@ -46,7 +46,7 @@ importFrom(igraph, graph_from_adjacency_matrix, edge_density, transitivity,
            mean_distance, degree, betweenness, closeness, 
            eigen_centrality, sample_smallworld, as_adjacency_matrix,
            is_connected, watts.strogatz.game, vcount, ecount, diameter,
-           sample_gnp, cluster_louvain, modularity, igraph_to_networkD3)
+           sample_gnp, cluster_louvain, modularity)
 importFrom(nnet, nnet)
 importFrom(forecast, auto.arima)
 importFrom(rugarch, ugarchspec, ugarchfit)
@@ -63,7 +63,7 @@ importFrom(ggplot2, ggplot, aes, geom_line, geom_point, geom_boxplot,
            ggsave, guides, guide_legend)
 importFrom(corrplot, corrplot)
 importFrom(plotly, ggplotly, plot_ly)
-importFrom(networkD3, forceNetwork, saveNetwork, JS)
+importFrom(networkD3, forceNetwork, saveNetwork, JS, igraph_to_networkD3)
 importFrom(moments, skewness, kurtosis)
 importFrom(scales, percent)
 importFrom(zoo, rollapply)
