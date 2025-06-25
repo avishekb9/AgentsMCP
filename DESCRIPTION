@@ -28,6 +28,7 @@ Imports:
     rugarch (>= 1.4.0),
     PerformanceAnalytics (>= 2.0.0),
     xts (>= 0.12.0),
+    zoo (>= 1.8.0),
     dplyr (>= 1.0.0),
     ggplot2 (>= 3.3.0),
     corrplot (>= 0.9.0),
