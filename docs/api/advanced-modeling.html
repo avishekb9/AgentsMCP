@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Modeling - AgentsMCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/r.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .doc-container { max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
+        .doc-header { text-align: center; margin-bottom: 3rem; }
+        .doc-title { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .doc-subtitle { font-size: 1.2rem; color: var(--gray-600); }
+        .doc-section { margin-bottom: 3rem; }
+        .doc-section h2 { color: var(--primary-color); border-bottom: 2px solid var(--gray-200); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .code-block { background: var(--gray-900); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; position: relative; }
+        .code-block pre { margin: 0; overflow-x: auto; }
+        .back-link { display: inline-flex; align-items: center; color: var(--primary-color); text-decoration: none; margin-bottom: 2rem; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+        .agent-type-card { background: var(--gray-50); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--primary-color); }
+        .agent-type-title { font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+            Back to Home
+        </a>
+
+        <div class="doc-header">
+            <h1 class="doc-title">Advanced ANNEM Modeling</h1>
+            <p class="doc-subtitle">Deep dive into the Agentic Neural Network Economic Model architecture</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>ANNEM Architecture Overview</h2>
+            <p>The Agentic Neural Network Economic Model (ANNEM) represents a sophisticated framework that combines:</p>
+            <ul>
+                <li><strong>Heterogeneous AI Agents</strong> - Six distinct agent types with unique behavioral patterns</li>
+                <li><strong>Neural Decision Networks</strong> - 3-layer neural networks with ReLU activation</li>
+                <li><strong>Dynamic Network Formation</strong> - Evolving connectivity based on decision similarity</li>
+                <li><strong>MCP Communication</strong> - Model Context Protocol for inter-agent messaging</li>
+                <li><strong>Real Market Integration</strong> - Live data feeds and sentiment analysis</li>
+            </ul>
+        </div>
+
+        <div class="doc-section">
+            <h2>Agent Types and Strategies</h2>
+            
+            <div class="agent-type-card">
+                <div class="agent-type-title">Neural Momentum Agents</div>
+                <p>Trend-following agents that use neural networks to identify and exploit momentum patterns. They enhance traditional momentum strategies with attention mechanisms and adaptive learning.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Create neural momentum agent
+agent <- create_annem_agent("momentum_001", "neural_momentum", 1000000)
+
+# The agent applies momentum strategy with neural enhancement
+# decision = base_neural_decision * 0.7 + tanh(momentum * 10) * 0.3</code></pre>
+                </div>
+            </div>
+
+            <div class="agent-type-card">
+                <div class="agent-type-title">Contrarian AI Agents</div>
+                <p>Mean-reversion specialists that identify oversold/overbought conditions using AI signals. They trade against prevailing trends when conditions are extreme.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Contrarian agents reverse momentum signals
+# decision = base_neural_decision * 0.6 - tanh(mean_return * 10) * 0.4</code></pre>
+                </div>
+            </div>
+
+            <div class="agent-type-card">
+                <div class="agent-type-title">Fundamentalist ML Agents</div>
+                <p>Technical analysis experts that combine traditional indicators with machine learning. They use moving averages, price deviations, and ML-enhanced signals.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Fundamentalist strategy with ML enhancement
+# Uses SMA-20 and price deviations
+# decision = base_neural_decision * 0.8 + tanh(-deviation * 5) * 0.2</code></pre>
+                </div>
+            </div>
+
+            <div class="agent-type-card">
+                <div class="agent-type-title">Social Network Agents</div>
+                <p>Herding behavior specialists that heavily weight peer influence and network signals. They represent the social dimension of market behavior.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Social influence weighting
+social_influence <- 0.3
+# decision = base_decision * (1 - social_influence) + network_signals * social_influence</code></pre>
+                </div>
+            </div>
+
+            <div class="agent-type-card">
+                <div class="agent-type-title">Meta Learning Agents</div>
+                <p>Adaptive strategy agents inspired by Model-Agnostic Meta-Learning (MAML). They adjust their confidence and strategy based on recent performance.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Meta-learning with performance-based confidence
+# confidence = max(0.1, min(0.9, 0.5 + recent_performance * 2))
+# decision = base_decision * confidence</code></pre>
+                </div>
+            </div>
+
+            <div class="agent-type-card">
+                <div class="agent-type-title">Adaptive Noise Agents</div>
+                <p>Random strategy agents that add stochastic elements to the market. They represent unpredictable market participants and help test system robustness.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Simple noise addition
+# noise = rnorm(1, 0, 0.1)
+# decision = base_decision + noise</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Neural Network Architecture</h2>
+            <p>Each agent employs a 3-layer neural network for decision making:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Neural network structure
+nn_weights <- list(
+  W1 = matrix(rnorm(50 * 128, 0, 0.1), 50, 128),  # Input to hidden (50->128)
+  b1 = rnorm(128, 0, 0.1),                         # Hidden layer 1 bias
+  W2 = matrix(rnorm(128 * 64, 0, 0.1), 128, 64),  # Hidden to hidden (128->64)
+  b2 = rnorm(64, 0, 0.1),                          # Hidden layer 2 bias
+  W3 = matrix(rnorm(64 * 1, 0, 0.1), 64, 1),      # Hidden to output (64->1)
+  b3 = rnorm(1, 0, 0.1)                            # Output bias
+)
+
+# Forward propagation with ReLU activation
+h1 <- pmax(0, state_vector %*% nn_weights$W1 + nn_weights$b1)
+h2 <- pmax(0, h1 %*% nn_weights$W2 + nn_weights$b2)
+output <- tanh(h2 %*% nn_weights$W3 + nn_weights$b3)  # Output in (-1, 1)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>State Vector Construction</h2>
+            <p>The 50-dimensional input state vector combines multiple market signals:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># State vector components (total: 50 dimensions)
+state_vector <- c(
+  scale(prices)[1:10],        # Normalized prices (10 dims)
+  returns[1:10],              # Returns (10 dims)
+  volatility[1:5],            # Volatility measures (5 dims)
+  network_signals,            # Network connectivity (1 dim)
+  sentiment,                  # Market sentiment (1 dim)
+  risk_tolerance,             # Agent risk tolerance (1 dim)
+  rep(0, 22)                  # Padding to reach 50 dimensions
+)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Dynamic Network Evolution</h2>
+            <p>Networks evolve based on agent decision similarity:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Network evolution algorithm
+similarity_matrix <- outer(agent_decisions, agent_decisions, 
+                          function(x, y) 1 - abs(x - y))
+
+# Add connections for similar agents
+if (similarity_matrix[i, j] > similarity_threshold && runif(1) < evolution_rate) {
+  adj_matrix[i, j] <- adj_matrix[j, i] <- 1
+}
+
+# Remove connections for dissimilar agents
+if (similarity_matrix[i, j] < (1 - similarity_threshold) && runif(1) < evolution_rate/2) {
+  adj_matrix[i, j] <- adj_matrix[j, i] <- 0
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Learning and Adaptation</h2>
+            <p>Agents learn from their performance and adapt their neural networks:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Performance-based learning
+performance_gradient <- tail(performance_history, 1)
+learning_rate <- 0.001
+
+# Update neural network weights (simplified gradient descent)
+nn_weights$W3 <- nn_weights$W3 + learning_rate * performance_gradient * 
+                 rnorm(length(nn_weights$W3), 0, 0.01)
+nn_weights$b3 <- nn_weights$b3 + learning_rate * performance_gradient * 
+                 rnorm(length(nn_weights$b3), 0, 0.01)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Custom Agent Distributions</h2>
+            <p>You can customize the proportion of each agent type:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Custom agent distribution
+custom_dist <- list(
+  neural_momentum = 0.30,      # 30% momentum agents
+  contrarian_ai = 0.25,        # 25% contrarian agents
+  fundamentalist_ml = 0.20,    # 20% fundamentalist agents
+  social_network = 0.15,       # 15% social agents
+  meta_learning = 0.10,        # 10% meta-learning agents
+  adaptive_noise = 0.00        # 0% noise agents (exclude)
+)
+
+# Run analysis with custom distribution
+results <- run_annem_analysis(
+  symbols = c("AAPL", "MSFT", "GOOGL"),
+  n_agents = 1000,
+  agent_distribution = custom_dist
+)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Performance Validation</h2>
+            <p>ANNEM includes comprehensive validation against mathematical framework:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Mathematical framework validation
+validation <- validate_annem_framework(market, simulation_results, agent_performance)
+
+# Check specific validation metrics
+validation[validation$Metric == "Agent Distribution Error", ]
+validation[validation$Metric == "Network Density", ]
+validation[validation$Metric == "Wealth Gini Coefficient", ]</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Next Steps</h2>
+            <ul>
+                <li><a href="network-analysis.html">Network Analysis Guide</a> - Understanding dynamic networks</li>
+                <li><a href="../reference/index.html">Function Reference</a> - Complete API documentation</li>
+                <li><a href="../examples/use-cases.html">Use Cases</a> - Real-world applications</li>
+                <li><a href="troubleshooting.html">Troubleshooting</a> - Common issues and solutions</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

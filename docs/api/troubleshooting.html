@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting - AgentsMCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family/JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .doc-container { max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
+        .doc-header { text-align: center; margin-bottom: 3rem; }
+        .doc-title { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .doc-subtitle { font-size: 1.2rem; color: var(--gray-600); }
+        .doc-section { margin-bottom: 3rem; }
+        .doc-section h2 { color: var(--primary-color); border-bottom: 2px solid var(--gray-200); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .back-link { display: inline-flex; align-items: center; color: var(--primary-color); text-decoration: none; margin-bottom: 2rem; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+        .issue-card { background: var(--gray-50); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--error-color); }
+        .solution-card { background: #f0f9ff; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--success-color); }
+        .issue-title { font-weight: 600; color: var(--error-color); margin-bottom: 0.5rem; }
+        .solution-title { font-weight: 600; color: var(--success-color); margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+            Back to Home
+        </a>
+
+        <div class="doc-header">
+            <h1 class="doc-title">Troubleshooting Guide</h1>
+            <p class="doc-subtitle">Common issues and solutions for AgentsMCP users</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>Installation Issues</h2>
+            
+            <div class="issue-card">
+                <div class="issue-title">Issue: Package installation fails</div>
+                <p>Error messages during devtools::install_github()</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">Solution:</div>
+                <ol>
+                    <li>Update R to version 4.0.0 or higher</li>
+                    <li>Install/update devtools: <code>install.packages("devtools")</code></li>
+                    <li>Install dependencies manually if needed</li>
+                    <li>Check internet connection for GitHub access</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Memory and Performance Issues</h2>
+            
+            <div class="issue-card">
+                <div class="issue-title">Issue: Out of memory errors with large simulations</div>
+                <p>R runs out of memory with high n_agents or n_steps</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">Solution:</div>
+                <ul>
+                    <li>Reduce n_agents (try 100-500 for testing)</li>
+                    <li>Reduce n_steps (try 50-100 for testing)</li>
+                    <li>Increase R memory limit: <code>memory.limit(size = 8000)</code> (Windows)</li>
+                    <li>Close other applications to free memory</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Data Loading Issues</h2>
+            
+            <div class="issue-card">
+                <div class="issue-title">Issue: Cannot load market data</div>
+                <p>Yahoo Finance connection fails or symbols not found</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">Solution:</div>
+                <ul>
+                    <li>Check internet connection</li>
+                    <li>Verify stock symbols are valid (e.g., "AAPL", "MSFT")</li>
+                    <li>Use synthetic data for testing: <code>generate_synthetic_data()</code></li>
+                    <li>Try fewer symbols or different date ranges</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Visualization Issues</h2>
+            
+            <div class="issue-card">
+                <div class="issue-title">Issue: Plots not displaying or saving</div>
+                <p>Visualization functions fail or produce empty plots</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">Solution:</div>
+                <ul>
+                    <li>Ensure ggplot2 and dependencies are installed</li>
+                    <li>Check that results object is complete</li>
+                    <li>Try individual plot functions first</li>
+                    <li>Specify output directory for saving plots</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Network Analysis Issues</h2>
+            
+            <div class="issue-card">
+                <div class="issue-title">Issue: Network evolution fails</div>
+                <p>Error in network analysis or evolution functions</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">Solution:</div>
+                <ul>
+                    <li>Check igraph package is properly installed</li>
+                    <li>Ensure agent decisions are valid numeric values</li>
+                    <li>Reduce network evolution parameters for stability</li>
+                    <li>Start with smaller networks (fewer agents)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Getting Additional Help</h2>
+            <p>If these solutions don't resolve your issue:</p>
+            <ul>
+                <li><a href="https://github.com/avishekb9/AgentsMCP/issues" target="_blank"><i class="fas fa-bug"></i> Report a Bug on GitHub</a></li>
+                <li><a href="https://github.com/avishekb9/AgentsMCP/discussions" target="_blank"><i class="fas fa-comments"></i> Ask in Discussions</a></li>
+                <li><a href="mailto:bavisek@gmail.com"><i class="fas fa-envelope"></i> Contact Developer</a></li>
+                <li><a href="../reference/index.html"><i class="fas fa-book"></i> Check Function Documentation</a></li>
+            </ul>
+        </div>
+
+        <div class="doc-section">
+            <h2>System Information</h2>
+            <p>When reporting issues, please include:</p>
+            <ul>
+                <li>R version: <code>R.version.string</code></li>
+                <li>AgentsMCP version: <code>packageVersion("AgentsMCP")</code></li>
+                <li>Operating system and version</li>
+                <li>Error messages (complete output)</li>
+                <li>Minimal reproducible example</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

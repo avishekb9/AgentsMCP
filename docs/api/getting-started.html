@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - AgentsMCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/r.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .doc-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .doc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .doc-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .doc-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+        }
+        .doc-section {
+            margin-bottom: 3rem;
+        }
+        .doc-section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .code-block {
+            background: var(--gray-900);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+        .code-block pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+        .step-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .warning-box {
+            background: #fef3cd;
+            border: 1px solid #fecf7a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .warning-box .warning-title {
+            font-weight: 600;
+            color: #b45309;
+            margin-bottom: 0.5rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+            Back to Home
+        </a>
+
+        <div class="doc-header">
+            <h1 class="doc-title">Getting Started with AgentsMCP</h1>
+            <p class="doc-subtitle">Quick start guide to get you up and running with ANNEM in minutes</p>
+        </div>
+
+        <div class="doc-section">
+            <div class="step-title">
+                <span class="step-number">1</span>
+                <span>Installation</span>
+            </div>
+            <p>Install AgentsMCP directly from GitHub using devtools:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Install devtools if you don't have it
+if (!require(devtools)) install.packages("devtools")
+
+# Install AgentsMCP from GitHub
+devtools::install_github("avishekb9/AgentsMCP")
+
+# Load the package
+library(AgentsMCP)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <div class="step-title">
+                <span class="step-number">2</span>
+                <span>Basic Usage</span>
+            </div>
+            <p>Run your first ANNEM analysis with default parameters:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Basic ANNEM analysis with default settings
+results <- run_annem_analysis(
+  symbols = c("AAPL", "MSFT", "GOOGL"),
+  n_agents = 100,    # Number of agents
+  n_steps = 50,      # Simulation steps
+  verbose = TRUE     # Show progress
+)
+
+# View summary of results
+annem_summary(results)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <div class="step-title">
+                <span class="step-number">3</span>
+                <span>Understanding Results</span>
+            </div>
+            <p>The analysis returns a comprehensive list with multiple components:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Access different parts of the results
+names(results)
+# [1] "market"                "simulation_results"    
+# [3] "agent_performance"     "network_metrics"       
+# [5] "benchmark_comparison"  "validation_results"    
+
+# View agent performance by type
+head(results$agent_performance)
+
+# Check benchmark comparison
+results$benchmark_comparison
+
+# Network evolution metrics
+head(results$network_metrics)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <div class="step-title">
+                <span class="step-number">4</span>
+                <span>Visualization</span>
+            </div>
+            <p>Generate comprehensive visualizations of your results:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Generate all visualizations
+plots <- generate_annem_report(results, save_plots = TRUE)
+
+# Create specific plots
+agent_plots <- plot_agent_performance(results$agent_performance)
+network_plots <- plot_network_evolution(results$network_metrics)
+wealth_plots <- plot_wealth_dynamics(results$simulation_results)
+
+# Display plots
+print(agent_plots$performance_dist)
+print(network_plots$evolution)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <div class="step-title">
+                <span class="step-number">5</span>
+                <span>Advanced Configuration</span>
+            </div>
+            <p>Customize your analysis with advanced parameters:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Advanced ANNEM analysis with custom settings
+advanced_results <- run_annem_analysis(
+  symbols = c("AAPL", "MSFT", "GOOGL", "TSLA", "NVDA"),
+  n_agents = 1000,
+  n_steps = 250,
+  agent_distribution = list(
+    neural_momentum = 0.25,
+    contrarian_ai = 0.20,
+    fundamentalist_ml = 0.20,
+    adaptive_noise = 0.10,
+    social_network = 0.15,
+    meta_learning = 0.10
+  ),
+  save_results = TRUE,
+  output_dir = "my_annem_results"
+)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Working with Individual Components</h2>
+            
+            <h3>Creating Agents</h3>
+            <div class="code-block">
+                <pre><code class="language-r"># Create individual agents
+agent1 <- create_annem_agent("agent_001", "neural_momentum", 1000000)
+agent2 <- create_annem_agent("agent_002", "contrarian_ai", 1500000)
+
+# Create a market environment
+market <- create_annem_market(n_agents = 500, symbols = c("AAPL", "MSFT"))
+
+# Run simulation
+sim_results <- market$run_simulation(n_steps = 100)</code></pre>
+            </div>
+
+            <h3>Performance Analysis</h3>
+            <div class="code-block">
+                <pre><code class="language-r"># Calculate performance metrics
+returns <- rnorm(252, 0.08/252, 0.2/sqrt(252))
+metrics <- calculate_performance_metrics(returns)
+
+# Calculate Sharpe ratio
+sharpe <- calculate_sharpe_ratio(returns)
+
+# Benchmark comparison
+predictions <- rnorm(100, 0.01, 0.02)
+actual <- rnorm(100, 0.01, 0.03)
+comparison <- compare_with_benchmarks(predictions, actual)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>System Requirements</h2>
+            <div class="warning-box">
+                <div class="warning-title">Important Notes:</div>
+                <ul>
+                    <li><strong>R Version:</strong> 4.0.0 or higher required</li>
+                    <li><strong>Memory:</strong> 8GB RAM recommended for large simulations</li>
+                    <li><strong>Internet:</strong> Required for downloading market data</li>
+                    <li><strong>Dependencies:</strong> Will be installed automatically</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Next Steps</h2>
+            <p>Now that you have AgentsMCP running, explore these resources:</p>
+            <ul>
+                <li><a href="advanced-modeling.html">Advanced Modeling Guide</a> - Deep dive into ANNEM architecture</li>
+                <li><a href="network-analysis.html">Network Analysis</a> - Understanding dynamic networks</li>
+                <li><a href="../reference/index.html">Function Reference</a> - Complete API documentation</li>
+                <li><a href="../examples/use-cases.html">Use Cases</a> - Real-world applications</li>
+            </ul>
+        </div>
+
+        <div class="doc-section">
+            <h2>Getting Help</h2>
+            <p>If you encounter issues or have questions:</p>
+            <ul>
+                <li><a href="https://github.com/avishekb9/AgentsMCP/issues" target="_blank">Report Issues on GitHub</a></li>
+                <li><a href="https://github.com/avishekb9/AgentsMCP/discussions" target="_blank">Join Discussions</a></li>
+                <li><a href="troubleshooting.html">Check Troubleshooting Guide</a></li>
+                <li><a href="mailto:bavisek@gmail.com">Contact Developer</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

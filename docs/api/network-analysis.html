@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Analysis - AgentsMCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/r.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .doc-container { max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
+        .doc-header { text-align: center; margin-bottom: 3rem; }
+        .doc-title { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .doc-subtitle { font-size: 1.2rem; color: var(--gray-600); }
+        .doc-section { margin-bottom: 3rem; }
+        .doc-section h2 { color: var(--primary-color); border-bottom: 2px solid var(--gray-200); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .code-block { background: var(--gray-900); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; position: relative; }
+        .code-block pre { margin: 0; overflow-x: auto; }
+        .back-link { display: inline-flex; align-items: center; color: var(--primary-color); text-decoration: none; margin-bottom: 2rem; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+            Back to Home
+        </a>
+
+        <div class="doc-header">
+            <h1 class="doc-title">Network Analysis in ANNEM</h1>
+            <p class="doc-subtitle">Understanding dynamic network formation and evolution</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>Network Evolution in ANNEM</h2>
+            <p>ANNEM features dynamic networks that evolve based on agent decision similarity and performance. This creates realistic market structures that adapt over time.</p>
+
+            <div class="code-block">
+                <pre><code class="language-r"># Analyze network evolution
+market <- create_annem_market(n_agents = 500)
+results <- market$run_simulation(n_steps = 100)
+network_metrics <- market$analyze_network_evolution()
+
+# Plot network evolution
+network_plots <- plot_network_evolution(network_metrics)
+print(network_plots$evolution)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Network Metrics</h2>
+            <p>Key metrics for understanding network structure:</p>
+            <ul>
+                <li><strong>Density:</strong> Proportion of actual connections to possible connections</li>
+                <li><strong>Clustering:</strong> Tendency of agents to form tightly connected groups</li>
+                <li><strong>Average Path Length:</strong> Average shortest path between any two agents</li>
+                <li><strong>Small-world Properties:</strong> Balance between clustering and path length</li>
+            </ul>
+
+            <div class="code-block">
+                <pre><code class="language-r"># Calculate comprehensive network metrics
+metrics <- calculate_network_metrics(market$network)
+
+# Key metrics
+print(paste("Density:", round(metrics$density, 4)))
+print(paste("Clustering:", round(metrics$global_clustering, 4)))
+print(paste("Avg Path Length:", round(metrics$avg_path_length, 4)))
+print(paste("Small-world Sigma:", round(metrics$small_world_sigma, 4)))</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Interactive Network Visualization</h2>
+            <p>Create interactive network visualizations:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Create interactive network visualization
+agent_types <- results$agent_types
+interactive_net <- create_interactive_network(
+  network = market$network,
+  agent_types = agent_types,
+  width = 800,
+  height = 600
+)
+
+# Save as HTML file
+networkD3::saveNetwork(interactive_net, "my_network.html")</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Custom Network Evolution</h2>
+            <p>Control network evolution parameters:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Custom network evolution
+evolved_network <- evolve_network(
+  network = market$network,
+  agent_decisions = sample_decisions,
+  similarity_threshold = 0.9,  # Higher threshold = more selective connections
+  evolution_rate = 0.05        # Higher rate = faster evolution
+)</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases - AgentsMCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/r.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .doc-container { max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
+        .doc-header { text-align: center; margin-bottom: 3rem; }
+        .doc-title { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .doc-subtitle { font-size: 1.2rem; color: var(--gray-600); }
+        .doc-section { margin-bottom: 3rem; }
+        .doc-section h2 { color: var(--primary-color); border-bottom: 2px solid var(--gray-200); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .code-block { background: var(--gray-900); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; position: relative; }
+        .code-block pre { margin: 0; overflow-x: auto; }
+        .back-link { display: inline-flex; align-items: center; color: var(--primary-color); text-decoration: none; margin-bottom: 2rem; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+        .use-case-card { background: var(--gray-50); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--primary-color); }
+        .use-case-title { font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+            Back to Home
+        </a>
+
+        <div class="doc-header">
+            <h1 class="doc-title">Real-World Use Cases</h1>
+            <p class="doc-subtitle">Practical applications and research examples with AgentsMCP</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>Financial Research Applications</h2>
+            
+            <div class="use-case-card">
+                <div class="use-case-title">Market Regime Detection</div>
+                <p>Use ANNEM to identify different market regimes and analyze how agent behavior changes during crisis periods vs. normal times.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Compare different market periods
+crisis_results <- run_annem_analysis(
+  symbols = c("SPY", "VIX", "GLD"),
+  n_agents = 500,
+  n_steps = 100
+)
+
+# Analyze agent performance during high volatility
+performance_analysis <- crisis_results$agent_performance
+high_volatility_agents <- performance_analysis[performance_analysis$sharpe_ratio > 0.5, ]</code></pre>
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-title">Portfolio Optimization</div>
+                <p>Leverage heterogeneous agent strategies for enhanced portfolio construction and risk management.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Multi-asset portfolio analysis
+portfolio_symbols <- c("AAPL", "MSFT", "GOOGL", "TSLA", "NVDA", "JPM", "JNJ")
+portfolio_results <- run_annem_analysis(
+  symbols = portfolio_symbols,
+  n_agents = 1000,
+  n_steps = 250
+)
+
+# Identify best performing agent types for allocation
+best_agents <- portfolio_results$agent_performance %>%
+  group_by(agent_type) %>%
+  summarise(avg_return = mean(total_return), avg_sharpe = mean(sharpe_ratio))</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Academic Research</h2>
+            
+            <div class="use-case-card">
+                <div class="use-case-title">Behavioral Finance Studies</div>
+                <p>Study the impact of different behavioral biases and heuristics on market outcomes.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Study social influence vs. fundamental analysis
+social_heavy <- list(
+  social_network = 0.6,      # High social influence
+  fundamentalist_ml = 0.2,
+  neural_momentum = 0.1,
+  contrarian_ai = 0.1
+)
+
+fundamental_heavy <- list(
+  fundamentalist_ml = 0.6,   # High fundamental focus
+  social_network = 0.1,
+  neural_momentum = 0.2,
+  contrarian_ai = 0.1
+)
+
+# Compare outcomes
+social_results <- run_annem_analysis(agent_distribution = social_heavy)
+fundamental_results <- run_annem_analysis(agent_distribution = fundamental_heavy)</code></pre>
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-title">Network Economics Research</div>
+                <p>Analyze how network topology affects information propagation and market efficiency.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Study network evolution patterns
+market <- create_annem_market(n_agents = 200)
+results <- market$run_simulation(n_steps = 500)
+
+# Analyze network metrics over time
+network_evolution <- market$analyze_network_evolution()
+network_plots <- plot_network_evolution(network_evolution)
+
+# Calculate information flow efficiency
+network_metrics <- calculate_network_metrics(market$network)</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Industry Applications</h2>
+            
+            <div class="use-case-card">
+                <div class="use-case-title">Risk Management</div>
+                <p>Implement ANNEM for stress testing and scenario analysis in financial institutions.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Stress test with different market conditions
+stress_symbols <- c("SPY", "TLT", "GLD", "VIX")
+stress_results <- run_annem_analysis(
+  symbols = stress_symbols,
+  n_agents = 1000,
+  n_steps = 100
+)
+
+# Calculate risk metrics
+risk_metrics <- calculate_performance_metrics(stress_results$simulation_results$actual_returns)
+max_drawdown <- risk_metrics$max_drawdown
+var_95 <- quantile(stress_results$simulation_results$actual_returns, 0.05)</code></pre>
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-title">Algorithmic Trading Development</div>
+                <p>Use ANNEM insights to develop and backtest trading algorithms based on agent behavior.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Develop trading strategy based on meta-learning agents
+results <- run_annem_analysis(
+  symbols = c("AAPL", "MSFT"),
+  agent_distribution = list(meta_learning = 1.0),  # Only meta-learning agents
+  n_agents = 100
+)
+
+# Extract decision patterns for strategy development
+meta_decisions <- results$simulation_results$agent_decisions
+strategy_signals <- apply(meta_decisions, 1, mean)  # Aggregate decisions</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Comparative Studies</h2>
+            
+            <div class="use-case-card">
+                <div class="use-case-title">Model Benchmarking</div>
+                <p>Compare ANNEM performance against traditional econometric models.</p>
+                <div class="code-block">
+                    <pre><code class="language-r"># Comprehensive model comparison
+symbols <- c("SPY", "EFA", "EEM", "AGG")
+results <- run_annem_analysis(symbols = symbols, n_agents = 500)
+
+# Get benchmark comparison
+comparison <- results$benchmark_comparison
+print(comparison)
+
+# Calculate improvement metrics
+annem_mse <- comparison[comparison$Model == "ANNEM", "MSE"]
+var_mse <- comparison[comparison$Model == "VAR", "MSE"]
+improvement <- (var_mse - annem_mse) / var_mse * 100
+cat("ANNEM improves MSE by", round(improvement, 1), "% vs VAR")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Reproducible Research</h2>
+            <p>Ensure reproducible results for academic publications:</p>
+            <div class="code-block">
+                <pre><code class="language-r"># Set seed for reproducibility
+set_annem_seed(42)
+
+# Run standardized analysis
+standard_config <- get_annem_config()
+results <- run_annem_analysis(
+  symbols = standard_config$default_symbols,
+  n_agents = standard_config$default_n_agents,
+  n_steps = standard_config$default_n_steps,
+  save_results = TRUE,
+  output_dir = "reproducible_results"
+)
+
+# Generate comprehensive report
+plots <- generate_annem_report(results, save_plots = TRUE)
+annem_summary(results)</code></pre>
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <h2>Next Steps</h2>
+            <ul>
+                <li><a href="../api/getting-started.html">Getting Started Guide</a> - Basic setup and usage</li>
+                <li><a href="../api/advanced-modeling.html">Advanced Modeling</a> - Deep dive into ANNEM</li>
+                <li><a href="../reference/index.html">Function Reference</a> - Complete API documentation</li>
+                <li><a href="https://github.com/avishekb9/AgentsMCP/discussions" target="_blank">Community Discussions</a> - Share your use cases</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
