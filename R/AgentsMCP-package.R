@@ -115,7 +115,7 @@
 #'   \item Billio, M., Getmansky, M., Lo, A. W., & Pelizzon, L. (2012). Econometric measures of connectedness and systemic risk in the finance and insurance sectors. Journal of financial economics, 104(3), 535-559.
 #' }
 #'
-#' @author Avisek Banerjee \email{avishekb9@@gmail.com}
+#' @author Avishek Bhandari \email{bavisek@@gmail.com}
 #'
 #' @seealso
 #' \itemize{

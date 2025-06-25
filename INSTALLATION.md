@@ -287,7 +287,7 @@ devtools::install()
 
 - **Documentation**: `vignette("getting-started", package = "AgentsMCP")`
 - **GitHub Issues**: https://github.com/avishekb9/AgentsMCP/issues
-- **Email**: avishekb9@gmail.com
+- **Email**: bavisek@gmail.com
 
 ## System Requirements Summary
 

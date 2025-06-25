@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with AgentsMCP"
-author: "Avisek Banerjee"
+author: "Avishek Bhandari"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

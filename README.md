@@ -258,7 +258,7 @@ If you use AgentsMCP in your research, please cite:
 
 - **Issues**: [GitHub Issues](https://github.com/avishekb9/AgentsMCP/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/avishekb9/AgentsMCP/discussions)
-- **Email**: avishekb9@gmail.com
+- **Email**: bavisek@gmail.com
 
 ## 🌟 Acknowledgments
 

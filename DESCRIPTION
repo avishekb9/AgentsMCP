@@ -4,11 +4,11 @@ Title: Agentic Neural Network Economic Model with MCP Communication
 Version: 1.0.0
 Date: 2025-06-25
 Authors@R: c(
-    person("Avisek", "Banerjee", email = "avishekb9@gmail.com", role = c("aut", "cre"),
+    person("Avishek", "Bhandari", email = "bavisek@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0000-0000-0000")),
     person("ANNEM Research Consortium", role = "ctb")
     )
-Maintainer: Avisek Banerjee <avishekb9@gmail.com>
+Maintainer: Avishek Bhandari <bavisek@gmail.com>
 Description: A comprehensive implementation of the Agentic Neural Network Economic Model (ANNEM), 
     featuring heterogeneous AI agents with neural decision-making capabilities, Model Context Protocol 
     (MCP) communication, dynamic network formation, and empirical validation using daily stock market data. 
