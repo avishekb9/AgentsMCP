@@ -48,7 +48,7 @@ Suggests:
     devtools (>= 2.4.0),
     pkgdown (>= 1.6.0)
 VignetteBuilder: knitr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 SystemRequirements: Internet connection for downloading market data
 NeedsCompilation: no
